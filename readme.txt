@@ -44,9 +44,11 @@ tablet, except a browser, to use the plugin securely.
 
    as root run the following commands:
 
-   mkdir /home/gpg
-   chown apache /home/gpg    (you may replace apache with your web server user)
-   chmod 700 /home/gpg
+   `mkdir /home/gpg`
+
+   `chown apache /home/gpg`    (you may replace apache with your web server user)
+   
+   `chmod 700 /home/gpg`
 
 3. Upload the plugin zip-file `encrypted-contact.tgz` to your `/wp-content/plugins/` 
    directory and extract the plugin files. The files will be stored in a separate directory
@@ -61,7 +63,7 @@ tablet, except a browser, to use the plugin securely.
    button.  Alternatively you can upload an existing private key via the Key Management tool.
 
 7. Decide whether or not you will store the messages (encrypted or not) on the server. 
-   Set the Archive Messages select box to `yes`. A subdirectory `messages` will be created 
+   Set the `Archive Messages` select box to `yes`. A subdirectory `messages` will be created 
    automatically inside the safe place for your encryption keys and copies of all messages 
    will be archived here before the are sent out via email.
    You can read these messages and even decrypt them online using the admin panel.
@@ -91,7 +93,7 @@ setting for $GPGDIR in the file "gpgconfig.php", then all key management can be 
 the admin panel without any further help from the sysadmin.
 
 If you like to read more about the desirable server environment for encryption, have a
-look at [this article] (http://kerry-linux.ie/articles/what-is-a-secure-server.php).
+look at this article (http://kerry-linux.ie/articles/what-is-a-secure-server.php).
 
 = Why do I need to enable HTTPS on my server before I can use Encrypted Contact? =
 
@@ -122,7 +124,7 @@ No upgrade necessary.
 
 The plugin uses the Web Encryption Extension in its current version. You can download the
 latest version of WEE from the 
-[Kerry Linux download page] (http://kerry-linux.ie/downloads) .
+Kerry Linux download page (http://kerry-linux.ie/downloads) .
 It is possible to replace the scripts for encryption, decryption and key management in your
 plugin directory with the original files from this download, without breaking anything. 
 
