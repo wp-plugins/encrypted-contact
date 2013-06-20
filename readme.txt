@@ -93,7 +93,7 @@ setting for $GPGDIR in the file "gpgconfig.php", then all key management can be 
 the admin panel without any further help from the sysadmin.
 
 If you like to read more about the desirable server environment for encryption, have a
-look at this article (http://kerry-linux.ie/articles/what-is-a-secure-server.php).
+look at [this article](http://kerry-linux.ie/articles/what-is-a-secure-server.php).
 
 = Why do I need to enable HTTPS on my server before I can use Encrypted Contact? =
 
@@ -124,7 +124,7 @@ No upgrade necessary.
 
 The plugin uses the Web Encryption Extension in its current version. You can download the
 latest version of WEE from the 
-Kerry Linux download page (http://kerry-linux.ie/downloads) .
+[Kerry Linux download page](http://kerry-linux.ie/downloads) .
 It is possible to replace the scripts for encryption, decryption and key management in your
 plugin directory with the original files from this download, without breaking anything. 
 
