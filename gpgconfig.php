@@ -84,9 +84,6 @@ Hash: SHA1
      $APACHE = 48;
  }
 
- if($_SERVER['HTTPS'] != "on") {
-     die ("<h3 class=error>This connection is not secured by SSL. Aborting.</h3>");
- }
 
  if ((! isset($AUTHREQUIRED)) or ($AUTHREQUIRED == "yes")) {
      require_once('kerrylinuxauth.php');
