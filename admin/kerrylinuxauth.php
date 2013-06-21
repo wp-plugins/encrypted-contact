@@ -1,20 +1,24 @@
 <?php
-// kerrylinuxauth.php for Wordpress
+// kerrylinuxauth.php for WordPress ADMIN section
 // application specific code that checks the validity of a login
-// and returns a $USERID
 
-//print_r($_SESSION);
+$USERID = "";
+foreach ($_COOKIE as $FIELD) {
+    $pos = strpos($FIELD,'|');
+    if ($pos !== false) {
+         $USERID = substr($FIELD,0,$pos);
+    }
+}
 
-$_SESSION['user_id'] = "demo";
+//echo "<h3>".$USERID."</h3>";
 
-if (isset($_SESSION['user_id'])) {
-     $USERID = $_SESSION['user_id'];
+if (isset($USERID) && ($USERID == "admin")) {
      $GPGDIR = $GPGDIR."/".$USERID;
      if (! is_dir($GPGDIR)) {
           mkdir($GPGDIR,0700);
      }
 }
 else {
-     die ("Not logged in.");
+     die ("Admin is not logged in.");
 }
 ?>
