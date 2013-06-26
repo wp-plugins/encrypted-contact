@@ -9,7 +9,7 @@ Hash: SHA1
  * Admin functions for Encrypted Contact ver 1.0
 
  ******************************************************************************
- * Copyright Kerry Linux, Ireland 2012. (http://kerry-linux.ie)
+ * Copyright Kerry Linux, Ireland 2013. (http://kerry-linux.ie)
  *
  * This file is part of the WEB ENCRYPTION EXTENSION (WEE)
  * File     : admin.php
@@ -18,7 +18,7 @@ Hash: SHA1
  * Signature: To protect the integrity of the source code, this program
  *            is signed with the code signing key used by the copyright
  *            holder, Kerry Linux.
- * Date     : Tuesday, 11 June 2013
+ * Date     : Monday, 24 June 2013
  * Contact  : Please send enquiries and bug-reports to opensource@kerrylinux.ie
  *******************************************************************************
 
@@ -73,13 +73,51 @@ function register_ec_settings(){
      register_setting('ec-option-group','spamcheck');
 }
 
+function warning_no_keydirectory(){
+     global $GPGDIR;
+     echo "<table cellpadding=20><tr><td bgcolor=#ffdddd>";
+     echo "<h3>There is no directory $GPGDIR to store the keys.\n";
+     echo "Please, run the following commands as root :</h3><code> mkdir $GPGDIR <br>chown apache $GPGDIR<br>chmod 700 $GPGDIR </code>";
+     echo "</td></tr></table><p>\n";
+}
+
+function warning_no_https(){
+     echo "<table cellpadding=20><tr><td bgcolor=#ffdddd>";
+     echo "<h3 class=error>This connection is not secured by HTTPS.</h3>\n";
+     echo "<h3 class=error>Your website visitors may enter confidential information into your contact form that does not travel to your server securely.</h3>\n";
+     echo "<h3 class=error>Encryption will not work unless you have made your web server https-ready.\n";
+     echo "Please visit <a href=http://kerry-linux.ie/support/https-tutorial.php>this tutorial</a> for more details.</h3>\n";
+     echo "</td></tr></table><p>\n";
+}
+
 function ec_admin_options() {
-     global $MESSAGEDIR;
+     global $MESSAGEDIR, $GPGDIR, $APACHE;
+
+     if($_SERVER['HTTPS'] != "on") {
+          warning_no_https();
+     }
+
+     if(! is_dir($GPGDIR)) {
+          warning_no_keydirectory();
+     } else {
+          if (fileowner($GPGDIR) != $APACHE){
+               echo "<p><h3 class=error>Directory $GPGDIR is not owned by webserver user</h3>";
+               echo "run: <code>chown $APACHE $GPGDIR</code>\n";
+          } else {
+               if (decbin(fileperms($GPGDIR)) != "100000111000000" ) {
+                    echo "<p><h3 class=error>Directory $GPGDIR has insecure permissions.</h3>";
+                    echo "run: <code>chmod 700 $GPGDIR</code>\n";
+               }
+          }
+     }
+
      ?>
      <div class="wrap">
      <h2>Administration of Encrypted Contacts</h2>
      <p>
      <?php
+
+
      $HTTPS_URL = str_replace('http','https',WP_PLUGIN_URL);
      echo "<input type=button class=\"keybutton\" name=\"Key Management\" value=\"Key Management\" onclick='javascript:window.open(\"".$HTTPS_URL."/encrypted-contact/admin/kerrylinuxkeys.php\",\"keys\",\"top=100, left=200, height=600, width=800, resizable=yes, scrollbars=yes, menubar=no, addressbar=no, status=yes\");'>";
      ?>
@@ -247,18 +285,18 @@ function ec_admin_options() {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQIcBAEBAgAGBQJRt0kFAAoJEG99+9BhwvVFQrIP/jCigH3iQQXmu3JaIF9+69Cq
-c6eb4ztFaNe351m4k4/+oY2Jpo2WqxapcIiWcJf/VhRewx3SJrKazfoRHKvkftJ8
-8DX+D9QTtRxK+/NXwyYXEUfE9J7LL7f66PuEUq8J3zq7ju9RrAAlsU+x5mkLhh7d
-PKPkN0ravT0hB3fwcoCobwQsjzLA70AOVu1d024nxpsK2bbAGgW49M4Iaz92aWPr
-Gtnn/iSKYSJNECFc4ag31YkwVHhTfT2yx1kGV1ST3eYjS6FN6usbsaF4lIyED6+0
-8Qo1Ro534CVRThLogKQcw3ubmLzfrrVT1YDGGvRl5lzsxZeQaA1UZFIkJssD0hTp
-ZoNUPwn7k2+4FdMAZnF5D4ifJb4+5tADRbnAZ3lcSyzTz4j+ecPMMHJO1TRT+jgS
-bhPpDEU6dPgX9h0m/hT33NXC6sgOxjKcymROGW00XLElfRGaqx+ZjISQ3x0xn8xl
-0ZHjzad+CLKc8WtFK/U9onAMAFseKxE8JGHfRYfgT92IljM+OeInaCrnPZ4Rc3+l
-IuX04WKTqWufFgG6aFCh8TfJEpAPm7UZTQsru9mrMb1WCivdybpyJ+piz1lBfVHK
-t++3d2zlp842nuxWbkJ1uQ7U10NZXriprvU3fyF6yUBvfqvK0D8lUjv6UCwvtqeS
-ZojHBaJjykTJvj7rwt7v
-=NQ0c
+iQIcBAEBAgAGBQJRyF/9AAoJEG99+9BhwvVF9qIP+wQuuxnjcOshkhAdGh0HcbMl
+FphBci9gHcHuyUgPJMVMleQuHOEtOFpSdMUtfm0Uhlh7SOXxBzpvPM101729WlUH
+EKpG5D0YB9/Hyi5H9b/ihDMllApJr+MUx4FCdisEhHP9l90mK/hfK29ZXZZ//Ru5
+Sj9kyB5g2C00n4QQRjiP8DyetFM8lo7RSVwmmOjneSJ8dJmHVUyW+L8BxRYDtlr3
+AuCywWwmvCM8kZxWrD4yXkALowW0YvCocV2pKaW98dTIkz8pU7WjIQqVRltYH1yB
+SIbtkeg+Stqb7DPPLOJjzzE8/JrZdiSao0rcqOy13tPiAddAkqIQBdayennEJAmZ
+BPVAlADkvJceivUmBwZQ8pUSyNfNNHlSVl7URfI0Mn8GReb4kCXXmCj94RQWo/dz
+XFnIEmsPdH8dlaPRbJWiDDFxON+RcWpRj5WMjGae05fsryqfGGI0rRt2VADyKg5z
+tu3Tk0Fs/zV6nvAwNYvqwiTA4mVjNaz68ZjthDsXbo5xisGoBTMccTw/zIBtxdic
+PGoMsGp98qiWNS3Uyr+FJjR15iK+8253pJ3u0+cX4AYOzxCrcNVm5/DR1sESAolG
+W7q1qjsaShFrdO6l4hZ+YPEa+nmyLPzdQFJnsyf/147MVp3njhOqUEQcskaes8Hs
+HftTq9ofBIQuTmp5n8ej
+=TNB8
 -----END PGP SIGNATURE-----
 */?>

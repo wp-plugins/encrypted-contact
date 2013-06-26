@@ -3,8 +3,8 @@ Contributors: kerrylinux
 Donate link: http://kerry-linux.ie/donate
 Tags: secure contact, encrypted message, encryption, confidential, decryption, gpg, gnupg, linux, kerrylinux, commercial website
 Requires at least: 2.9.2
-Tested up to: 3.5.1
-Stable tag: 1.0
+Tested up to: 3.5.2
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -106,6 +106,14 @@ via https, and it will refuse to work, if not.
 
 HTTPS is a basic requirement, if you are serious about the security of your website.
 
+If you wish to set up https on your web server, you can [follow the instructions in this tutorial](http://kerry-linux.ie/support/https-tutorial.php).
+
+= I get the error message "The input field does not exist." =
+
+That is perfectly ok, because you are trying to start the encryption from a non-https page
+of your website. Put your contact form on a page that will already be accessed via https
+and everything works fine.
+
 == Screenshots ==
 
 
@@ -113,6 +121,9 @@ HTTPS is a basic requirement, if you are serious about the security of your webs
 
 = 1.0 =
 This is the first stable version of Encrypted Contact, released Monday, 10th June 2013.
+
+= 1.0.2 =
+Update that allows installation and activation of the plugin without using https.
 
 == Upgrade Notice ==
 

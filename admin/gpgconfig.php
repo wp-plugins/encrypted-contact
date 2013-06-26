@@ -1,6 +1,6 @@
 <?php
  // gpgconfig.php : Include file for WEB ENCRYPTION EXTENSION
- // version 1.4.0
+ // version 1.4.1-admin-plugin
 
     $RECIPIENT = "your@email.com";
     $ALLOWATTACHMENTS = "no";
@@ -47,12 +47,12 @@ Hash: SHA1
 *
 * This file is part of the WEB ENCRYPTION EXTENSION (WEE)
 * File     : gpgconfig.php
-* Version  : 1.4.0
+* Version  : 1.4.1-admin-plugin
 * License  : GPL-v3
 * Signature: To protect the integrity of the source code, this program
 *            is signed with the code signing key used by the copyright
 *            holder, Kerry Linux.
-* Date     : Sunday, 14 April 2013
+* Date     : Monday, 24 June 2013
 * Contact  : Please send enquiries and bug-reports to opensource@kerrylinux.ie
 *
 * This program is free software: you can redistribute it and/or modify
@@ -90,9 +90,7 @@ Hash: SHA1
 
  // the $GPGDIR may have changed as a result of user authentication in kerrylinuxauth.php
 
- if (! is_dir($GPGDIR)){
-     die ("<p><h3 class=error>Directory $GPGDIR does not exist.</h3>");
- } else {
+ if (is_dir($GPGDIR)){
      if (fileowner($GPGDIR) != $APACHE){
           echo "<p>run: chown $APACHE $GPGDIR";
           die("<p><h3 class=error>Directory $GPGDIR is not owned by webserver user</h3>");
@@ -131,7 +129,7 @@ function unix2($command,$dir)
       $text = fread($handle,20000000);
       fclose($handle);
       // destroy content of the plain text file
-      unix("dd if=/dev/zero of=".$FILENAME." bs=1 count=".strlen($RESULT));
+      unix("dd if=/dev/zero of=".$FILENAME." bs=1 count=".strlen($text));
       unix("sync");
       unix("rm ".$FILENAME);
       return $text;
@@ -209,22 +207,25 @@ if (! isset($FORYOUREYESONLY)){
      $FORYOUREYESONLY = "no";
 }
 
+if (! isset($REMOVEBR)){
+     $REMOVEBR = "no";
+}
 /*
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQIcBAEBAgAGBQJRavheAAoJEG99+9BhwvVFWCwP/1NTz70/+OBkW82Uiv3gm8jo
-aBvbepnn4OTBkBvArYwYDHhK16Y5PrUrYBAoA4roJk/4uK4j47yHM6GsKsqn5/8F
-4qkd7lJ+6f8Rfl2ObOAcZEF+OR5qZGjReH+GP7CAsfv0solEdIg9uVGRn+Cos3v4
-k3fuWmeqH3nsJpYaQ49L/2nsPFuCPjvYoL5DZQFuZ6NZ76HOxbke1A6b4Qo1fLeH
-hlAYOQUyA/NLxn+5iMJaSsoNoKQcW5YQ+GBROniPjIys/tk4Md2KEQdGZ7uqXOvV
-Rnq/dvPOPiVkWW5H6oZe/dXCqNv1i/BtIzMQbJAmFm6fJHaFSooKT5UQqx2P+pPk
-Cu4oNirjfrmd3Cr4Upe6zkZXRxwObaWI0kpW8ycorOGk4RWCBJjhF0bYQ2o6YUyy
-mNP+eZs9FjKeg++027nOH9CB5Rd0pYHT0MmKCMRGstVUa9AqkX9PyLblNf+udxaa
-o/cxDG3boh9lSf6SUFfYSvAKqsWS1E1fUqQOgIV5oc475B/p6ErGEas19MS50Wf3
-UEqIdio61blUL9rgkirTsJ5o2uiARZzG1FGT8OwfYq7m2N7sn5h5F5StWdOM4PAB
-XpwYzfFjG5noNlc6haaSwDvTT0FgZotIGKT20nZCDR4iU/JRoRj/sMFXis8P5cCG
-py0PCyae6Z3VkhCyk5B3
-=PNjK
+iQIcBAEBAgAGBQJRyGCwAAoJEG99+9BhwvVF+PUQAJuqr60r7UJezm7CkuQIUraa
+BVKNbH0asaNe2JwhXeG5mlmdlJJOq4/M8KW5Td23H7cqLFlPrvqlMjreXXAkF3qa
+kjmTfhRWf8HAtSJ3pnhJ55ohD7Tm11oxms28z68Ft/STJn4Tr9K18RKvld9XgCon
+p0U4KI4UeYzYxWXd13ylYbXWb9QGeDV3zMN7dwDXK6BfK86WBsSHDT30TXaWqoKp
+Uozq2CVt+STVmG3wYy2egnelzt2jBzZLLT0bnTutoCFPajIdOX8Wrw3hUQWB6xc9
+XyTpdg6njixWmJmK7w2Kyy8HHAt3JEPhesmUPM7n6l0IIqEUXHjOG/OL3tqjrNER
+PhfLbvIsgeNKfUdIqkglveIPu9dhuwEic+mtYNzHsUp7hJozrnkgL9XFWlosQmKp
+Qu9mDulHdP+/0CF1K18uW1/BdEN5Re/HDcK2PtLBP9YFTWdJV469dkKuXahc08wC
+iA4D6QY/bSzyIjbfuvsrZgx3qTDc18lgko27G4WCgNGHU5CuQ/j9Cqs+LdqA3W08
+ysQVEthzEzo1lEexwFurkS7V/kMHLAlk3CRiISxOPzP6FgrfLJlD5/9n2ewfyH26
+QfS+P4THJYiaQ4tmb2UdifniPOH+Cq4R9Ieh6I7aePVh0RfCeDYu244LQtDXEmU5
+4NChLJZh38EGmH0bz3r4
+=Le3G
 -----END PGP SIGNATURE-----
 */?>
