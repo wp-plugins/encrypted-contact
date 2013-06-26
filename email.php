@@ -19,7 +19,7 @@ Function Module for encrypted-contact.php
  * Signature: To protect the integrity of the source code, this program
  *            is signed with the code signing key used by the copyright
  *            holder, Kerry Linux.
- * Date     : Monday, 10 June 2013
+ * Date     : Wednesday, 26 June 2013
  * Contact  : Please send enquiries and bug-reports to opensource@kerrylinux.ie
  *
  * This program is free software: you can redistribute it and/or modify
@@ -158,7 +158,7 @@ Function Module for encrypted-contact.php
            echo "    document.write(rand*10+\">\");\n";
            echo "//-->\n";
            echo "</script>\n";
-           echo " <br> 0 <input type=range name=slider min=0 max=100 value=0 style='width:140px'> 100<p>\n";
+           echo " <br> 0 <input type=range name=slider min=0 max=100 value=0 style='width:120px'> 100<p>\n";
       }
  }
 
@@ -296,18 +296,18 @@ function send_email($EMAIL, $MESSAGE) {
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQIcBAEBAgAGBQJRtgRzAAoJEG99+9BhwvVF/l4P/jD3fkAXaj2yZQMFXKkGSVK5
-mRvd+kwV7RmVFKiatCxAUJcgQ7TRtL2huKuVs8vFJ1iI9bmqCZa9MrG/ZCUkGR+6
-3hrxS98kQbDuloILZ/uBp5G4Yn+EGImRosH37wvM6Z/zIKX6eK9WX/igx6xRZWQa
-aRhAT/gOYc+Nu/gLqXFKzsLbVNs8ivGL4rSfc8Ogeln0asZZhT+RMQTTEBitKftT
-wejZYdQGd7TB6NwgqUgoMQBngPnTCVAUWdF3WUXWRs/Jh95LFErAD1V3Whcfq2U7
-6lyP75P4yl8yv1g7oQ781EScwqD2hLQyegGXBkL33PVJNO6sopkZ6sdWvPww+v4V
-xjcfdmfYSzU8Dah2zXMn1wkUhempwXhfYoWc0fvP9vZRyyJkLg3Yt1sZvfyLkMAf
-TDcWjv+1fwGDWGm1CRjoOoy3EnmWeaS8TgljXHlXRXyYPNfWPeCOJ9ejjfeZxokJ
-pUlmJOdn4l0oOYTaumDgMgAxG35MQq9cAKL2vbLjPQ1zgyGPy7sy4+DGrRYW69IT
-FendoLrcYIRh8Ta2g8WxwZ8nBRhZZ5J3fLUEg9Zv0g7pxy9i8AqIOU6cOOlImI/o
-/Xro9nXq4wo2K102iDL2hRTLMcEqPrbLhKnMSgkZrTawprzfL1wiEPhJNufUSONV
-syNUcCptvjIiu/OGL9bW
-=kq8N
+iQIcBAEBAgAGBQJRym9jAAoJEG99+9BhwvVFe2cQAIXhyXAPnaxX3X488wjHmImQ
+/sop0PhuUk9ovqMuOweVhGHK4FgdkCEY1FwGcnAXgz0RZ7gDTvtx7mzi72lzGU8P
+deoQd/I58WjawhM0h8QY9tvRLDH3gEJ+Uwr3v4x8vwU16T4/IPCWDt2ER8Iy2MsN
+HprjcMLupMzphY7FDuFE9hXq+BFP130I2z86aGD9gvJGQL/vY2esAQPTIHrPKlRn
+ZFNnIf5y1UvSXeFOuXm7HYsdb856mvYKuwL7pgFYQXK4aVB6gZGtapIMJsGG6LA6
+/hJesGU7Dp21/47Vaz6KF7aQxxtKNhEXdHpRwKdRT0mZnaH9/X2i86WR8n/px4F9
+rgTb7/TT+S9uNsgzNfX1Qhapgn+9Yj7xmZGNjJbahR9EWgYb6ckwCSDAqk1/9PAw
++ebFN887wAl/Tbmvx0IR7IiP2AhP75nM8bvy8ggD+gxWopyt92759mIPRQzKGNGN
+gqhOI8EcszgPnXQcAVA46UkUkYD5Qy7v1AXwJ/vdhlMdFhHolfRCfyZ1oMPZtu0Z
+0t3B0I/Z3udVrf9S58sdf+V4whKnOoPh18buehQk6QWUo3h63hvvl13q7S62A2AX
+2zfEj9+Zz/RLB3DKxiqSLPv7g2VYx4I2LjMPUNhfGeC73Ncr+fdlLLLOP7TkdwZf
++uktwpl799sRjCISd57b
+=UEKP
 -----END PGP SIGNATURE-----
 */?>

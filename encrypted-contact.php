@@ -8,12 +8,12 @@ Hash: SHA1
 /*
  * Plugin Name: Encrypted Contact
  * Plugin URI:  http://kerry-linux.ie/wordpress/encrypted-contact
- * Description: Encrypted Contact offers your website visitors a tool to protect their messages before they are sent to the website's owner via email.  This plugin encrypts messages arriving (via HTTPS) at the server using gnupg.
- * Version:     1.0
+ * Description: Encrypted Contact offers your website visitors a tool to protect their messages before they are sent to the website's owner via email. This plugin encrypts messages arriving (via HTTPS) at the server using gnupg.
+ * Version:     1.0.2
  * Author:      Kerry Linux
  * Author URI:  http://kerry-linux.ie
  * License:     GPL2 or later
- * Date:        June 11th 2013
+ * Date:        June 26th 2013
 
 Copyright 2013 Kerry Linux, Ireland (email: opensource@kerry-linux.ie)
 
@@ -72,7 +72,7 @@ class Encrypted_Contact_Widget extends WP_Widget {
                      echo " value=".$_REQUEST['email'];
                 }
                 echo ">";
-                echo "&nbsp;<p>&nbsp;";
+                echo "<p>";
                 echo "<h3 class=eclabel>Your (encrypted) Message:</h3>";
                 echo "<textarea class=message name=encryptedmessage cols=20 rows=8>";
                 if (isset($_REQUEST['encryptedmessage'])) {
@@ -127,22 +127,23 @@ function ec_styles() {
 
 add_action ( 'widgets_init', 'ec_register_widgets' );
 add_action ('wp_head','ec_styles');
+
 /*
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQIcBAEBAgAGBQJRt0jMAAoJEG99+9BhwvVFcIIQAIbwyc49h+kbU39/XCnIACqO
-Es1XUwC2gahCk2c3TMvC6lLyq3mxd0WtnlaQHSr/pB5+6AQrIHRmBHRLK9u0ZVeO
-1LbTLNUNhTqUVt+1IH5bR2GmnRBvaVuydx/CY8zmDUQaZbfsXDMT731Hq5XSsuG7
-PC4zKHyHgdNUOrjZ8Oou8aRYugJH7u7xdb99BX4YzIjIDchbUyjQasM8itOEJ38Q
-QPbWnMawIbX5XbB7JEj1+zkv70LoO4B8MAizoiDzJlcWLu8eZ65xezG4TugOlK52
-aZxur7tj1GrGAHKXEwsYLGtEFzC5vjP1ar/uJV2iXnCjJVBY/flcVAqEp7VLXueP
-9gDbUC60SkJWZZ1BdiCRgIjUH7xdVk/Ul3FXM5LgG9QplktTe5/l197Q3mRge3h5
-GqHiPujYBBCOhYxoEjLjBhdlT1ULmqsfMfVNWHHf7M+bsxHeDFqvdjExh5TXJ9rP
-2FLYnQklR2owEODEjG73mWxT+RW2kGTPnaWzuhgtDW4a5CnBx6UEuNztMjWGUE9Q
-/R/XjvdO75C76W6E1Sn9mtIp5JPRSn7+oUt7aOAwT0BXKxrFq+dkFK6rS2LxpW5n
-YnenkWr/g5u3W2kG3+e7fgGLv46ozRg9usF1/rl65mWNUF2gktgkePGFRSr6o5fO
-j6IVCFvuq5Vj/WHnV8t0
-=GBFh
+iQIcBAEBAgAGBQJRypmoAAoJEG99+9BhwvVFFx0P/2xIpPV9nJsCh6cgqp1o4Xyu
+wCb8rP9G+SnWBieiOxFn6p89u+sWW9y/4Q3zWqhHOF7NLA7ElO87LtdPRrQ+6GIg
+qCVUzWU6l2IHkpKeePLB4j+QSwSxbVTTaf9/HHXPCg9Xammfvj+LHtKDElYgkh04
+ww1bwHaqGhk7ejtxUyEvkzSvSM4rGwSkqHQasDgyqpFUUKMX6x3Agq//wf5s8bTY
+40YuJQsYnSsY7B0Nds3GAbuKBJtK/ZRAp1MK/8TMKLbYaLmMtZjLHkn5Ovtlda7O
+/fhicgfo66yUkPRAJpbogb333koLmQFM3G69PG/lC767MD5EdpCG5OesXonEm2p8
+RDIE6WtVhGkg8hFaJgFrFHkAIP/ykAa58newJ6pKqrdSv2yOj9BYIFsWi5GyuM99
+ODrc76OdOeznxDB57FnIwDDFmbWSg7BQ1D9cEVyOuIiloSdq6i0CL99V/38fW6Do
+nXsNc0nfqiqT+Fv6WJaeJJLig4lCKAelpHX8H8rQDb8xQ/6zKElW9Y6TqK+acSms
+SiK9/K/UFwf7oxZu7VZSzNoaG7/CZvaRUMPgfPw4wN2d5BLkAOo3tEgjid/38OU2
+7zrtPKxza2eIbadidc2lVkVnvXf1DskSzETCwzLmdRUD1pXuT+0rL0INQ9gcyfoF
+i/W00LCpNN3Rao6d1GI/
+=S84N
 -----END PGP SIGNATURE-----
 */?>
