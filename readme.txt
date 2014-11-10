@@ -112,6 +112,9 @@ HTTPS is a basic requirement, if you are serious about the security of your webs
 = 1.0 =
 This is the first stable version of Encrypted Contact, released Monday, 10th June 2013.
 
+= 1.3 =
+This version is a major security update. Please upgrade your plugin version.
+
 == Upgrade Notice ==
 
 = 1.0 =
