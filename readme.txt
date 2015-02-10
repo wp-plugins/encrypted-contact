@@ -4,7 +4,7 @@ Donate link: https://senderek.ie/donate
 Tags: secure contact, encrypted message, encryption, confidential, decryption, gpg, gnupg, linux, commercial website
 Requires at least: 2.9.2
 Tested up to: 4.0
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,7 +117,7 @@ This is the first stable version of Encrypted Contact, released Monday, 10th Jun
 = 1.0 =
 Security upgrade necessary.
 
-= 1.3 =
+= 1.3.1 =
 Latest version includes security upgrade.
 
 == Arbitrary section ==
